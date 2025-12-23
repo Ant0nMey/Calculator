@@ -14,19 +14,20 @@ function divide(a, b) {
     return a / b;
 }
 
-function operator(op) {
+function operator(a, b, op) {
+
     switch(op) {
         case '+':
-            add(a, b);
+            return add(a, b);
             break;
         case '-':
-            substract(a, b);
+            return substract(a, b);
             break;
         case '*':
-            multiply(a, b);
+            return multiply(a, b);
             break;
         case '/':
-            divide(a, b);
+            return divide(a, b);
             break;
     };
 }
@@ -50,10 +51,16 @@ function populateScreen() {
         op = event.target.textContent;
         var1 = var2;
         var2 = '';
+        if(var1 != '') {
+            let result = operator(op, var1, var2);
+
+        }
         screenSelector.innerHTML = '';
         })
 }
 
+numbers = [ 1 , 2 ]
+op = "+"
 
 
 
