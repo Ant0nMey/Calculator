@@ -1,76 +1,72 @@
-function add(a, b) {
-    return a + b;
-}
+function add(a, b) { return a + b; }
+function multiply(a, b) { return a * b; }
+function subtract(a, b) { return a - b; }
+function divide(a, b) { return a / b; }
 
-function multiply(a, b) {
-    return a * b;
-}
-
-function subtract(a, b) {
-    return a - b;
-}
-
-function divide(a, b) {
-    return a / b;
-}
-
-function operator(a, b, op) {
-
-    switch(op) {
+function operator(a, b, operator) {
+    a = parseInt(a);
+    b = parseInt(b);
+    switch(operator) {
         case '+':
             return add(a, b);
-            break;
         case '-':
-            return substract(a, b);
-            break;
+            return subtract(a, b);
         case '*':
+            if(roundRobin == 0) {
+            return multiply(1, b);
+            } else {
             return multiply(a, b);
-            break;
+            }
         case '/':
             return divide(a, b);
-            break;
     };
 }
 
+let currentSign = ''
+let buffer = [];
+let result = '';
 function populateScreen() {
 
     let numberSelector = document.querySelector('#numberWrapper');
     let signSelector = document.querySelector('#signWrapper');
     let screenSelector = document.querySelector('.result');
-
-    let var1 = '';
-    let var2 = ''
-    op = ''
+    let clearSelector = document.querySelector('#clear');
 
     numberSelector.addEventListener('click', function(event) {
-        screenSelector.innerHTML += event.target.textContent;
-        var2 += event.target.textContent;
-    });
+
+        buffer.push(event.target.textContent)
+        console.log(`buffer modifié : ${buffer}`);
+
+        })
 
     signSelector.addEventListener('click', function(event) {
-        op = event.target.textContent;
-        var1 = var2;
-        var2 = '';
-        if(var1 != '') {
-            let result = operator(op, var1, var2);
 
-        }
-        screenSelector.innerHTML = '';
-        })
+    if (buffer.includes("+") || buffer.includes("-") || buffer.includes("/")) {
+    
+        console.log(`Un signe dans le buffer existe déja. Récupération des deux côtés du buffer : ${buffer}`)
+        let indexSign = buffer.indexOf(currentSign);
+
+        let premierePartie = buffer.slice(0, indexSign).join('');
+
+        let deuxiemePartie = buffer.slice(indexSign+1, buffer.length).join('');
+
+        result = operator(premierePartie, deuxiemePartie, currentSign)
+        buffer = [];
+        buffer.push(result);
+
+        console.log(`result = ${result}`)
+        // buffer.reduce( (result, [buffer.splice(indexOf(currentSign))]) => )
+        currentSign = event.target.textContent;
+    } else {
+        buffer.push(event.target.textContent);
+        currentSign = event.target.textContent;
+        console.log(`Aucun signe dans le buffer n'existe. buffer : ${buffer}`)
+        console.log(`Aucun signe dans le buffer n'existe. currentSign : ${currentSign}`)
+    }
+
+})
+
 }
 
-numbers = [ 1 , 2 ]
-op = "+"
-
-
-
-    
-
-
-    
-    // Effacer le resultat à l'écran
-    let clearSelector = document.querySelector('#clear');
-    clearSelector.addEventListener('click', (e) => { screenSelector.innerHTML="";});
-}
 
 populateScreen();
