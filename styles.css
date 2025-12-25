@@ -1,0 +1,63 @@
+.calculette {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: khaki;
+    width: 400px;
+    padding: 20px;
+    border: solid, 1px, black;
+}
+
+.result {
+    display : flex;
+    justify-content: center;
+    align-items: center;
+    height : 100px;
+    margin: 50px;
+    background-color: gray;
+    color: white;
+    font-weight: 400;
+}
+
+.number,
+.sign {
+    font-weight: 600;
+    height : 70px;
+    width: 70px;
+}
+
+.number {
+    padding:5px;
+    margin:5px;
+}
+.boutonWrapper {
+    display: flex;
+    justify-content: space-around;
+
+    border: solid, 4px, red;
+}
+
+#signWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0px;
+    border: solid, 4px, blue;
+}
+
+#numberWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 250px;
+    margin: 0px;
+    border: solid, 4px, yellow;
+
+}
+
+.bottom {
+    display:flex;
+    border: solid, 4px, pink;
+    height: 50px;
+    align-items:flex-start;
+}

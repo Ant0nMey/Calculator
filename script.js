@@ -21,6 +21,7 @@ function operator(a, b, operator) {
 let currentSign = ''
 let buffer = [];
 let result = '';
+let start = 0;
 function populateScreen() {
 
     let numberSelector = document.querySelector('#numberWrapper');
@@ -28,7 +29,12 @@ function populateScreen() {
     let screenSelector = document.querySelector('.result');
     let clearSelector = document.querySelector('#clear');
 
+
     numberSelector.addEventListener('click', function(event) {
+        if (start == 0) {
+            screenSelector.innerHTML = ''
+            start += 1;
+        }
         let chiffre = event.target.textContent;
         if (["+","-","/","*"].includes(buffer.at(-1))) {
             screenSelector.innerHTML = '';
