@@ -30,6 +30,7 @@
     padding:5px;
     margin:5px;
 }
+
 .boutonWrapper {
     display: flex;
     justify-content: space-around;
@@ -59,5 +60,12 @@
     display:flex;
     border: solid, 4px, pink;
     height: 50px;
-    align-items:flex-start;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 1;
+    padding: 10px;
+}
+
+#clear {
+    width : 400px;
 }
