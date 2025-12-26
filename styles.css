@@ -13,10 +13,12 @@
     justify-content: center;
     align-items: center;
     height : 100px;
-    margin: 50px;
+    margin: 20px;
     background-color: gray;
+    font-size: 40px;
     color: white;
-    font-weight: 400;
+    font-weight: 800;
+    border-radius:0%
 }
 
 .number,
@@ -35,15 +37,14 @@
     display: flex;
     justify-content: space-around;
 
-    border: solid, 4px, red;
 }
 
 #signWrapper {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding:10px;
     margin: 0px;
-    border: solid, 4px, blue;
 }
 
 #numberWrapper {
@@ -52,13 +53,11 @@
     justify-content: center;
     width: 250px;
     margin: 0px;
-    border: solid, 4px, yellow;
 
 }
 
 .bottom {
     display:flex;
-    border: solid, 4px, pink;
     height: 50px;
     flex-grow: 1;
     flex-shrink: 1;
