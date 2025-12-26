@@ -4,8 +4,8 @@ function subtract(a, b) { return a - b; }
 function divide(a, b) { return a / b; }
 
 function operator(a, b, operator) {
-    a = parseInt(a);
-    b = parseInt(b);
+    a = Number(a);
+    b = Number(b);
     switch(operator) {
         case '+':
             return add(a, b);
